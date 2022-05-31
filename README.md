@@ -8,6 +8,16 @@ It leverages the [Shopify API Library](https://github.com/Shopify/shopify-node-a
 
 This is the repository used when you create a new Node app with the [Shopify CLI](https://shopify.dev/apps/tools/cli).
 
+## TODO
+
+- [x] Setup initial repo
+- [x] Deploy repo to Render
+- [ ] On installation, send back OAuth details to shipmates-BE
+- [ ] Add oauth field to stores model in shipmates-BE
+- [ ] Create UI for redirection
+- [ ] Fix Shopify app description
+- [ ] Submit to Shopify App Store
+
 ## Requirements
 
 - If you don’t have one, [create a Shopify partner account](https://partners.shopify.com/signup).
