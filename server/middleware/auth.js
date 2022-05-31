@@ -56,7 +56,23 @@ export default function applyAuthMiddleware(app) {
         })
       );
 
+      console.log("Shop: ", session.shop);
       console.log("Access token: ", session.accessToken);
+
+      // TODO: Send this to /v1/integrations/shopify-oauth
+      const shipmates_url =
+        "https://staging-api.shipmates.app/v1/integrations/shopify-oauth";
+
+      const shipmatesResponse = await fetch(shipmates_url, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          url: session.shop,
+          secret: session.accessToken,
+        }),
+      });
+
+      console.log("Body: ", JSON.parse(shipmatesResponse.body));
 
       const response = await Shopify.Webhooks.Registry.register({
         shop: session.shop,
