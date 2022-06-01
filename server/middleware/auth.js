@@ -71,8 +71,9 @@ export default function applyAuthMiddleware(app) {
           secret: session.accessToken,
         }),
       });
+      const shipmatesBody = await shipmatesResponse.json();
 
-      console.log("Body: ", shipmatesResponse.body);
+      console.log("Body: ", shipmatesBody);
 
       const response = await Shopify.Webhooks.Registry.register({
         shop: session.shop,
