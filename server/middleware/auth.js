@@ -56,10 +56,9 @@ export default function applyAuthMiddleware(app) {
         })
       );
 
-      console.log("Shop: ", session.shop);
-      console.log("Access token: ", session.accessToken);
+      // console.log("Shop: ", session.shop);
+      // console.log("Access token: ", session.accessToken);
 
-      // TODO: Send this to /v1/integrations/shopify-oauth
       const shipmates_url =
         "https://staging-api.shipmates.app/v1/integrations/shopify-oauth";
 
@@ -71,9 +70,6 @@ export default function applyAuthMiddleware(app) {
           secret: session.accessToken,
         }),
       });
-      const shipmatesBody = await shipmatesResponse.json();
-
-      console.log("Body: ", shipmatesBody);
 
       const response = await Shopify.Webhooks.Registry.register({
         shop: session.shop,
