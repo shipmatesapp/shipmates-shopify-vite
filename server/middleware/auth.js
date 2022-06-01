@@ -72,7 +72,7 @@ export default function applyAuthMiddleware(app) {
         }),
       });
 
-      console.log("Body: ", JSON.parse(shipmatesResponse.body));
+      console.log("Body: ", shipmatesResponse.body);
 
       const response = await Shopify.Webhooks.Registry.register({
         shop: session.shop,
